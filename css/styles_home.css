@@ -1,0 +1,277 @@
+/* fonts */
+@font-face {
+    font-family: "Aktiv Grotesk Corp";
+    src: url(../fonts/AktivGroteskCorp-Regular.ttf);
+}
+
+.artists-title, .pab-title {
+    font-size: 35px;
+    line-height: 29.41px;
+    text-transform: uppercase;
+}
+/* slider */
+.project-slider .slider {
+    position: relative;
+    width: 750px;
+    height: 300px;
+    margin: 70px 0;
+    padding: 0 60px;
+}
+
+.project-slider .slider-wrapper {
+    width: 100%;
+}
+
+.project-slider .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding-left: 160px;
+    cursor: pointer;
+}
+
+.project-slider .slider-nav {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.project-slider .swiper-button-next, .swiper-button-prev{
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    width: 16px;
+    height: 26px;
+    background-size: contain;
+}
+
+.project-slider .swiper-button-next {
+   right: 0;
+   background-image: url(../img/arrow-next.png);
+}
+
+.project-slider .swiper-button-prev {
+    left: 0;
+    background-image: url(../img/arrow-prev.png);
+}
+
+.project-slider .swiper-pagination {
+    bottom: -45px;
+    /* font-size: 13px; */
+    padding-left: 160px;
+}
+
+.artists-wrapper > div:not(:last-child), .publications-wrapper > div:not(:last-child) {
+    border-right: 2px solid #7f7f7f;
+}
+
+.artists-search {
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.artists-search > input {
+    border: none;
+    outline: none;
+    width: 200px;
+}
+
+.artists-search > img {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.artists-title  {
+    width: 320px;
+    padding: 35px 0;
+}
+
+.artists-item, .project-title {
+    font-size: 20px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.artists-item:hover > a{
+   border-bottom: 1px solid;
+}
+
+::-webkit-input-placeholder {
+    color: #b1b1b1;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 27px;
+}
+::-moz-placeholder {
+    color: #b1b1b1;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 27px;
+}
+:-moz-placeholder {
+    color: #b1b1b1;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 27px;
+}
+:-ms-input-placeholder {
+    color: #b1b1b1;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 27px;
+}
+
+.artists-list {
+    width: calc(100% - 445px);
+    padding: 35px 20px;
+}
+
+.artists-list > ul {
+    column-count: 3;
+    margin: 35px 0;
+}
+
+.share {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    cursor: pointer;
+}
+
+.publications-wrapper .share {
+    bottom: 57px;
+}
+
+.publications-wrapper .social-icons {
+    bottom: 40px;
+}
+
+.social-icons {
+    display: none;
+    transition: 0.3s;
+    width: 17px;
+    text-align: center;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 5px;
+    left: 25px;
+    z-index: 2;
+    background: #fff;
+}
+
+.social-icons img {
+    margin-bottom: 13px;
+    cursor: pointer;
+}
+
+.social-icons  img:hover {
+    opacity: 0.7;
+}
+
+.sidebar-bottom:hover .social-icons{
+   display: block;
+}
+
+/* publication block */
+.publications {
+    width: calc(100% - 125px);
+    padding: 35px 0;
+    position: relative;
+}
+
+.publications-wrapper .sidebar {
+    text-align: center;
+}
+
+.publications .swiper-pagination {
+    text-align: right;
+    padding: 0 35px 50px 0
+}
+
+.pub-item {
+    margin: 95px 0;
+    cursor: move;
+}
+
+.pub-descr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 45px;
+}
+
+.pub-descr > h3 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.pub-descr > h3:before {
+    content: '';
+    width: 147px;
+    height: 4px;
+    background-color: #000;
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: -90px;
+}
+
+.pub-data {
+    font-size: 14px;
+    font-style: italic;
+    line-height: 27px;
+    text-transform: uppercase;
+    letter-spacing: 2.8px;
+    color: #8f8f8f;
+}
+
+.btn {
+    width: 210px;
+    height: 50px;
+    border: 2px solid #000000;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn:before {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: -2px;
+}
+
+.pub-btn:after, .slider-btn:after {
+    content: url(../img/btn-arrow.png);
+    position: absolute;
+    top: 50%;
+    right: -35px;
+    transform: translateY(-50%);
+}
+
+.slider-btn {
+    position: absolute;
+    right: -190px;
+    bottom: 0;
+}
