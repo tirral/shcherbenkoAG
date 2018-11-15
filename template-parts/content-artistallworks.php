@@ -6,6 +6,7 @@
 ?>
 
 
+
 <div class="artists-pics-item" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="artists-pics-item-img">
         <?php the_post_thumbnail( 'post-thumbnails' ); ?>
