@@ -44,7 +44,7 @@ function shcherbenko_toolbox_register_works() {
 		'label'                 => __( 'Works', 'shcherbenko_toolbox' ),
 		'description'           => __( 'A post type for your works', 'shcherbenko_toolbox' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'thumbnail' ),
+		'supports'              => array( 'title',  'thumbnail' ),
 		'taxonomies'            => array( 'artists' ),
 		'hierarchical'          => false,
 		'public'                => true,

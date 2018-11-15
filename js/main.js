@@ -98,7 +98,6 @@ var onePageWorkShow = function () {
 
 
 
-
 };
 
 
@@ -109,7 +108,6 @@ var onePageWorkShow = function () {
   //  aboutUsSlider();
     //homepageslider();
     //homepagesliderPub();
-    onePageWorkShow();
-    onePageWorkShow();
+  //  onePageWorkShow();
   	});
   })(jQuery);

@@ -23,7 +23,7 @@ $artistsId = $taxonomy->term_id;
 $artistsSlug = $taxonomy->slug;
 $artistsName = $taxonomy->name;
 
-
+echo 'template-parts/template-single-artists.php';
 ?>
 
 

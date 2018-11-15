@@ -40,11 +40,12 @@ function shcherbenko_toolbox_register_project() {
 	);
 
 
+
 	$args = array(
 		'label'                 => __( 'Project', 'shcherbenko_toolbox' ),
 		'description'           => __( 'A post type for your project', 'shcherbenko_toolbox' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'thumbnail' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'taxonomies'            => array( 'project_tupes' ),
 		'hierarchical'          => false,
 		'public'                => true,

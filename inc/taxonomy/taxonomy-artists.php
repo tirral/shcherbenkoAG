@@ -25,14 +25,15 @@
  );
 
 
- //register_taxonomy('artists', array('works'), $args_country);
+register_taxonomy('artists', array('works', 'project'), $args_country);
 
- register_taxonomy(
-     'artists',
-     array(
-        'works'
-         // your other args...
-         // 'rewrite' => array( 'slug' => 'artists', 'with_front' => true ),
-     ),
-     $args_country
- );
+ // register_taxonomy(
+ //     'artists',
+ //     array(
+ //        'works'
+ //
+ //         // your other args...
+ //         // 'rewrite' => array( 'slug' => 'artists', 'with_front' => true ),
+ //     ),
+ //     $args_country
+ // );

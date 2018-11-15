@@ -26,14 +26,15 @@ $taxonomy = get_queried_object();
 $artistsId = $taxonomy->term_id;
 $artistsSlug = $taxonomy->slug;
 $artistsName = $taxonomy->name;
-?>
 
+echo 'template-parts/template-artist-all-work.php';
+?>
 
 <main>
         <div class="wrapper">
             <div class="main-nav">
-                <h1 class="title-h1">Работы: <?php echo $artistName ?></h1>
-  							<a href="<?php echo  home_url( '/artists/'. $artistSlug ); ?>" class="nk_to-prev-page">Биография художника</a>
+                <h1 class="title-h1">Работы: <?php echo $artistsName ?></h1>
+  							<a href="<?php echo  home_url( '/artists/'. $artistsSlug ); ?>" class="nk_to-prev-page">Биография художника</a>
 								<nav>
                     <ul>
                         <li class="nav_item"><a href="#">проекты</a></li>
@@ -44,25 +45,29 @@ $artistsName = $taxonomy->name;
             </div>
         </div>
 
-
         <div class="full-width no-border">
             <div class="wrapper flx">
                 <div class="artists-wrapp">
                     <div class="artists-pics-list">
-
-                    	<!-- НАЧАЛО ЦЫКЛА ДЛЯ ВЫВОДА ВСЕХ РАБОТ ХУДОЖНИКА -->
+                    	<!-- НАЧАЛО ЦЫКЛА ДЛЯ ВЫВОДА ВСЕХ РАБОТ ОДНОГО ХУДОЖНИКА -->
                       <?php
-                      if ( have_posts() ) :
-                        while ( have_posts() ) :
-                          the_post();
-                      
+                      $query = new WP_Query( array(
+                        'post_type' => 'works',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'artists',
+                                'field' => 'slug',
+                                'terms' => $artistsSlug //$artistSlug
+                                )
+                            ),
+                    ) );
+                      while ( $query->have_posts() ) {
+                        $query->the_post();
                         get_template_part( 'template-parts/content', 'artistallworks' );
-                        endwhile;
-                        the_posts_navigation();
-                      endif;
+                    }
                       ?>
+                      <!-- КОНЕЦ ЦЫКЛА ДЛЯ ВЫВОДА ВСЕХ РАБОТ ОДНОГО ХУДОЖНИКА -->
 							</div>
-
                 <div class="sidebar"></div>
             </div> <!-- end wrapper -->
         </div> <!-- end full-width -->

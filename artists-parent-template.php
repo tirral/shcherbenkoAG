@@ -2,24 +2,19 @@
 
 
 $page_type = get_query_var('page_type');
-
 switch($page_type){
-
+   // Шаблон списка всех художников (архив термов)
+  // $page = get_query_var('paged');
+  // echo "<h2>Страница: $page</h2>";
   case 'term_archive':
-    echo "<h1>Шаблон списка всех художников (архив термов)</h1>";
-    $page = get_query_var('paged');
-    echo "<h2>Страница: $page</h2>";
+    include_once( 'template-parts/template-all-artists.php' );
   break;
-
-
 
 // Шаблон одного художника (single терма)
 // http://shcherbenko.odev.io/artists/artists_1/
   case 'term_single':
       include_once( 'template-parts/template-single-artists.php' );
   break;
-
-
 
 // Шаблон всех работ одного художника
 // http://shcherbenko.odev.io/works/artists_1/
@@ -32,8 +27,6 @@ switch($page_type){
       include_once( 'template-parts/template-artist-all-work.php' );
   break;
 
-
-
 // Страница одного поста (тип указан ниже) одного художника
 // echo "<h1>Страница одного поста (тип указан ниже) одного художника</h1>";
 // $term_post_type = get_query_var('term_post_type');
@@ -42,13 +35,17 @@ switch($page_type){
       include_once( 'template-parts/template-single-work.php' );
   break;
 
+// Страница одного поста ПРОЕКТА одного художника (вывод одной записи)
+case 'single_project_post_by_term':
+    include_once( 'template-parts/template-single-project.php' );
+break;
+
+// Шаблон всех ПРОЕКТОВ одного художника (вывод архива)
+  case 'post_project_archive_by_term':
+      echo "<h1>Шаблон всех ПРОЕКТОВ одного художника (вывод архива)</h1>";
+  break;
 }
 
-
-// global $wp_query;
-// echo "<pre>";
-// var_dump($wp_query->query_vars);
-// echo "</pre>";
 
 
 // $object = get_queried_object();

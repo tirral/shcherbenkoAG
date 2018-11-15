@@ -16,8 +16,8 @@
  echo $artistsId;
  echo $artistsId;
  echo $artistsName;
-
-
+ echo 'archive-works.php </br>';
+ echo 'такой страницы нет в дизайне';
 
 
  /**
@@ -32,10 +32,12 @@
  add_action( 'wp_enqueue_scripts', 'shcherbenko_scripts_artistsallwokr' );
 
 
+
+
 get_header();
 ?>
 
-archive-works.php
+
 
 <main>
         <div class="wrapper">

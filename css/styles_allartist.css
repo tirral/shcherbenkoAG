@@ -1,0 +1,176 @@
+.artists-title, .pab-title {
+    font-size: 35px;
+    line-height: 29.41px;
+    text-transform: uppercase;
+}
+
+/* artists*/
+.artists-wrapper > div:not(:last-child), .publications-wrapper > div:not(:last-child) {
+    border-right: 2px solid #7f7f7f;
+}
+
+.artists-search {
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.artists-search > input {
+    border: none;
+    outline: none;
+    width: 200px;
+}
+
+.artists-search > img {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.artists-title  {
+    width: 320px;
+    padding: 35px 0;
+}
+
+.artists-item, .project-title {
+    font-size: 20px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.artists-item a {
+    padding-bottom: 20px;
+}
+
+.artists-item:hover > a{
+   border-bottom: 4px solid;
+}
+
+/*artisct pic hover */
+.artist-pic-popUp {
+    width: 100%;
+    background-color: #fff;
+    transition-duration: 0.3s;
+    margin-top: 21px;
+    z-index: 2000;
+    cursor: auto;
+}
+
+.artists-item {
+    position: static;
+}
+
+.artist-pic-popUp img{
+    width: 0;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition-duration: 0.3s;
+}
+
+.artists-item:hover .artist-pic-popUp{
+    height: 420px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.3s;
+    border-top: 2px solid #7f7f7f;
+    border-bottom: 2px solid #7f7f7f;
+}
+
+.artists-item:hover .artist-pic-popUp img {
+    width: 420px;
+}
+/*end */
+
+::-webkit-input-placeholder {
+    color: #b1b1b1;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 27px;
+}
+::-moz-placeholder {
+    color: #b1b1b1;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 27px;
+}
+:-moz-placeholder {
+    color: #b1b1b1;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 27px;
+}
+:-ms-input-placeholder {
+    color: #b1b1b1;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 27px;
+}
+
+.artists-list {
+    width: calc(100% - 445px);
+    padding: 35px 20px;
+    column-count: 3;
+    margin: 35px 0;
+    margin-left: 320px;
+    position: relative;
+}
+
+.share {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    cursor: pointer;
+}
+
+.social-icons {
+    display: none;
+    transition: 0.3s;
+    width: 17px;
+    text-align: center;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 5px;
+    left: 25px;
+    z-index: 2;
+    background: #fff;
+}
+
+.social-icons  img {
+    margin-bottom: 13px;
+    cursor: pointer;
+}
+
+.social-icons  img:hover {
+    opacity: 0.7;
+}
+
+.sidebar-bottom:hover .social-icons{
+   display: block;
+}
+
+.btn {
+    width: 210px;
+    height: 50px;
+    border: 2px solid #000000;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn:before {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: -2px;
+}

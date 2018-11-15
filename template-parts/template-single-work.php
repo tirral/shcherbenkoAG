@@ -21,23 +21,20 @@ add_action( 'wp_enqueue_scripts', 'shcherbenko_scripts_artistonewokr' );
 
 get_header();
 
-
 $slug = get_query_var( 'post_slug', $default = '' );
 $post_id = get_query_var( 'post_id', $default = '' );
-
 $taxonomy = get_queried_object();
 $artistsId = $taxonomy->term_id;
 $artistsSlug = $taxonomy->slug;
 $artistsName = $taxonomy->name;
 
-
+echo 'template-parts/template-single-work.php';
 
 $query = new WP_Query( array( 'post_type' => 'works', 'name' => $slug ) );
 while ( $query->have_posts() ) {
 	$query->the_post();
   $postMainId = get_the_ID();
 ?>
-
 <main>
       <div class="wrapper">
           <div class="main-nav">

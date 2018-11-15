@@ -163,7 +163,7 @@ require get_template_directory() . '/inc/metaboxes/aboutus_page-metaboxes.php';
 require get_template_directory() . '/inc/metaboxes/team-metaboxes.php';
 require get_template_directory() . '/inc/metaboxes/artists-metaboxes.php';
 require get_template_directory() . '/inc/metaboxes/works-metaboxes.php';
-
+require get_template_directory() . '/inc/metaboxes/project-metaboxes.php';
 
 
 /**
@@ -252,6 +252,27 @@ function artists_rewrites(){
 	// Страница со списком постов терма определенного типа поста
 	add_rewrite_rule( '^(works)/([^/]*)/?', 'index.php?page_type=post_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]', 'top' );
 
+
+
+
+
+  // Страница со списком постов терма определенного типа поста с номером страницы для пагинации
+  add_rewrite_rule( '^(project)/([^/]*)/([0-9]+)/?', 'index.php?page_type=post_project_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&paged=$matches[3]', 'top' );
+
+  // Страница с одним постом терма определенного типа поста
+  add_rewrite_rule( '^(project)/([^/]*)/([^/]*)?', 'index.php?page_type=single_project_post_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&post_slug=$matches[3]', 'top' );
+
+
+  // Страница со списком постов терма определенного типа поста
+	add_rewrite_rule( '^(project)/([^/]*)/?', 'index.php?page_type=post_project_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]', 'top' );
+
+
+
+
+
+
+
+
 	// Архивная страница таксономии с номером страницы для пагинации
 	add_rewrite_rule( '^artists/([0-9]+)/?', 'index.php?page_type=term_archive&taxonomy=artists&paged=$matches[1]', 'top' );
 
@@ -264,7 +285,6 @@ function artists_rewrites(){
 }
 
 add_filter( 'query_vars', 'artists_query_vars' );
-
 
 function artists_query_vars($vars){
 
@@ -295,12 +315,24 @@ function places_permalinks_tat( $permalink, $post, $leavename ,$term, $taxonomy)
         return $permalink;
     }
     switch($post->post_type) {
+
         case 'works':
 	        $artists = wp_get_post_terms( $post->ID, 'artists' );
 	        if( $artists ) {
 				        $permalink = "/works/{$artists[0]->slug}/{$post->post_name}";
 	        }
 	        break;
+
+          case 'project':
+  	        $artists = wp_get_post_terms( $post->ID, 'artists' );
+  	        if( $artists ) {
+  				        $permalink = "/project/{$artists[0]->slug}/{$post->post_name}";
+  	        }
+  	        break;
+
+
+
+
     }
     return $permalink;
 }
