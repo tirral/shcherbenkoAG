@@ -164,7 +164,7 @@ require get_template_directory() . '/inc/metaboxes/team-metaboxes.php';
 require get_template_directory() . '/inc/metaboxes/artists-metaboxes.php';
 require get_template_directory() . '/inc/metaboxes/works-metaboxes.php';
 require get_template_directory() . '/inc/metaboxes/project-metaboxes.php';
-
+require get_template_directory() . '/inc/metaboxes/publications-metaboxes.php';
 
 /**
 * Register custom post types
@@ -172,14 +172,12 @@ require get_template_directory() . '/inc/metaboxes/project-metaboxes.php';
 require get_template_directory() . '/inc/custom-post-type/post-type-team.php';
 require get_template_directory() . '/inc/custom-post-type/post-type-works.php';
 require get_template_directory() . '/inc/custom-post-type/post-type-project.php';
+require get_template_directory() . '/inc/custom-post-type/post-type-publications.php';
 
 /**
 * Register custom taxonomy
 */
 require get_template_directory() . '/inc/taxonomy/taxonomy-artists.php';
-
-
-
 
 
 /**
@@ -227,7 +225,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /*
 * Main menu sub-menu class rename
 */
-
 function new_submenu_class($menu, $args) {
     $menu = preg_replace('/ class="sub-menu"/','/ class="submenu" /',$menu);
   return $menu;
@@ -253,23 +250,24 @@ function artists_rewrites(){
 	add_rewrite_rule( '^(works)/([^/]*)/?', 'index.php?page_type=post_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]', 'top' );
 
 
-
-
-
   // Страница со списком постов терма определенного типа поста с номером страницы для пагинации
   add_rewrite_rule( '^(project)/([^/]*)/([0-9]+)/?', 'index.php?page_type=post_project_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&paged=$matches[3]', 'top' );
 
   // Страница с одним постом терма определенного типа поста
   add_rewrite_rule( '^(project)/([^/]*)/([^/]*)?', 'index.php?page_type=single_project_post_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&post_slug=$matches[3]', 'top' );
 
-
   // Страница со списком постов терма определенного типа поста
 	add_rewrite_rule( '^(project)/([^/]*)/?', 'index.php?page_type=post_project_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]', 'top' );
 
 
-
-
-
+ //  Страница со списком постов терма определенного типа поста с номером страницы для пагинации
+  add_rewrite_rule( '^(publications)/([^/]*)/([0-9]+)/?', 'index.php?page_type=post_publications_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&paged=$matches[3]', 'top' );
+ //
+ //  Страница с одним постом терма определенного типа поста
+  add_rewrite_rule( '^(publications)/([^/]*)/([^/]*)?', 'index.php?page_type=single_publications_post_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&post_slug=$matches[3]', 'top' );
+ //
+ //  Страница со списком постов терма определенного типа поста
+ add_rewrite_rule( '^(publications)/([^/]*)/?', 'index.php?page_type=post_publications_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]', 'top' );
 
 
 
@@ -287,7 +285,6 @@ function artists_rewrites(){
 add_filter( 'query_vars', 'artists_query_vars' );
 
 function artists_query_vars($vars){
-
 	$vars[] = 'page_type';
   $vars[] = 'post_slug';
 	$vars[] = 'term_post_type';
@@ -317,21 +314,25 @@ function places_permalinks_tat( $permalink, $post, $leavename ,$term, $taxonomy)
     switch($post->post_type) {
 
         case 'works':
-	        $artists = wp_get_post_terms( $post->ID, 'artists' );
-	        if( $artists ) {
-				        $permalink = "/works/{$artists[0]->slug}/{$post->post_name}";
-	        }
-	        break;
+          $artists = wp_get_post_terms( $post->ID, 'artists' );
+          if( $artists ) {
+          $permalink = "/works/{$artists[0]->slug}/{$post->post_name}";
+          }
+        break;
 
-          case 'project':
-  	        $artists = wp_get_post_terms( $post->ID, 'artists' );
-  	        if( $artists ) {
-  				        $permalink = "/project/{$artists[0]->slug}/{$post->post_name}";
-  	        }
-  	        break;
+        case 'project':
+          $artists = wp_get_post_terms( $post->ID, 'artists' );
+          if( $artists ) {
+          $permalink = "/project/{$artists[0]->slug}/{$post->post_name}";
+          }
+        break;
 
-
-
+        case 'publications':
+          $artists = wp_get_post_terms( $post->ID, 'artists' );
+          if( $artists ) {
+          $permalink = "/publications/{$artists[0]->slug}/{$post->post_name}";
+          }
+        break;
 
     }
     return $permalink;
@@ -341,12 +342,13 @@ add_filter( 'post_type_link', 'places_permalinks_tat',11, 3 );
 
 add_filter('term_link', 'term_link_filter', 10, 3);
 
-function term_link_filter( $url, $term, $taxonomy ) {
 
+function term_link_filter( $url, $term, $taxonomy ) {
        switch($taxonomy) {
         case 'artists':
 	        $url = "/artists/{$term->slug}";
 	        break;
     }
+
     return $url;
 }

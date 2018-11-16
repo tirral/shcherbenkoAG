@@ -6,11 +6,26 @@
 
 // Main menu button
   var menuOpen = function () {
-  document.querySelector('.menu-icon').addEventListener('click', function() {
+      document.querySelector('.menu-icon').addEventListener('click', function() {
       this.classList.toggle('open');
       document.querySelector('.menu').classList.toggle('dsp-none')
     })
-  };
+
+    //Main menu width fix
+    $(document).ready(function () {
+        var w = $(window).width();
+        $('.menu').css({
+        width: w,
+      });
+    });
+
+    $(window).resize(function () {
+        var w = $(window).width();
+        $('.menu').css({
+        width: w,
+      });
+    });
+};
 
   // Live search
   var liveSearch = function () {
@@ -32,16 +47,15 @@
 
 
 var readmore = function () {
-
   $('.artist-bio-text').readmore({
           speed: 250,
           maxHeight: 66,
           heightMargin: 16,
           moreLink: `<div class="read-more">
-                          <span>Читать больше</span>
+                      <span>Читать больше</span>
                       </div>`,
           lessLink:  `<div class="read-more">
-                          <span>Скрыть</span>
+                      <span>Скрыть</span>
                       </div>`,
           });
 
@@ -50,10 +64,10 @@ var readmore = function () {
           maxHeight: 240,
           heightMargin: 16,
           moreLink: `<div class="read-more">
-                          <span>Читать больше</span>
+                      <span>Читать больше</span>
                       </div>`,
           lessLink:  `<div class="read-more">
-                          <span>Скрыть</span>
+                      <span>Скрыть</span>
                       </div>`,
           });
 
@@ -63,10 +77,10 @@ var readmore = function () {
           maxHeight: 240,
           heightMargin: 16,
           moreLink: `<div class="read-more">
-                          <span>Читать больше</span>
+                      <span>Читать больше</span>
                       </div>`,
           lessLink:  `<div class="read-more">
-                          <span>Скрыть</span>
+                      <span>Скрыть</span>
                       </div>`,
           });
   };
@@ -105,9 +119,9 @@ var onePageWorkShow = function () {
     menuOpen();
     liveSearch();
     readmore();
-  //  aboutUsSlider();
+    //aboutUsSlider();
     //homepageslider();
     //homepagesliderPub();
-  //  onePageWorkShow();
+    //onePageWorkShow();
   	});
   })(jQuery);

@@ -1,11 +1,8 @@
 <?php
 /**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package shcherbenko
- */
+ * The template for displaying artists all works.
+ * http://shcherbenko.odev.io/works/artists_1/
+*/
 
  /**
   * Enqueue styles for artists all works.
@@ -18,7 +15,6 @@
  }
  add_action( 'wp_enqueue_scripts', 'shcherbenko_scripts_artistsallwokr' );
 
-
 get_header();
 
 // Передача слага художника в archive-works.php
@@ -26,11 +22,9 @@ $taxonomy = get_queried_object();
 $artistsId = $taxonomy->term_id;
 $artistsSlug = $taxonomy->slug;
 $artistsName = $taxonomy->name;
-
 echo 'template-parts/template-artist-all-work.php';
 ?>
-
-<main>
+      <main>
         <div class="wrapper">
             <div class="main-nav">
                 <h1 class="title-h1">Работы: <?php echo $artistsName ?></h1>
@@ -44,34 +38,40 @@ echo 'template-parts/template-artist-all-work.php';
                 </nav>
             </div>
         </div>
-
         <div class="full-width no-border">
             <div class="wrapper flx">
                 <div class="artists-wrapp">
                     <div class="artists-pics-list">
                     	<!-- НАЧАЛО ЦЫКЛА ДЛЯ ВЫВОДА ВСЕХ РАБОТ ОДНОГО ХУДОЖНИКА -->
                       <?php
-                      $query = new WP_Query( array(
-                        'post_type' => 'works',
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'artists',
-                                'field' => 'slug',
-                                'terms' => $artistsSlug //$artistSlug
-                                )
-                            ),
-                    ) );
-                      while ( $query->have_posts() ) {
-                        $query->the_post();
-                        get_template_part( 'template-parts/content', 'artistallworks' );
-                    }
+                      $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                      $params = array(
+                       'posts_per_page' => 20, // количество постов на странице
+                       'post_type' => 'works',
+                       'paged' => $current_page, // текущая страница
+                       'tax_query' => array(
+                           array(
+                               'taxonomy' => 'artists',
+                               'field' => 'slug',
+                               'terms' => $artistsSlug //$artistSlug
+                               )
+                           ),
+                      );
+                      query_posts($params);
+                      $wp_query->is_archive = true;
+                      $wp_query->is_home = false;
+                      while(have_posts()): the_post();
+                            get_template_part( 'template-parts/content', 'artistallworks' );
+                      endwhile;
                       ?>
-                      <!-- КОНЕЦ ЦЫКЛА ДЛЯ ВЫВОДА ВСЕХ РАБОТ ОДНОГО ХУДОЖНИКА -->
-							</div>
+                    <div class="pagination">
+                    <?php wp_pagenavi(); ?>
+                    </div>
+  <!-- КОНЕЦ ЦЫКЛА ДЛЯ ВЫВОДА ВСЕХ РАБОТ ОДНОГО ХУДОЖНИКА -->
+							     </div>
                 <div class="sidebar"></div>
             </div> <!-- end wrapper -->
         </div> <!-- end full-width -->
     </main>
-
 
 <?php get_footer();?>

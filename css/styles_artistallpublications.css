@@ -1,0 +1,146 @@
+/* c -capabilities */
+.sidebar-bottom {
+    width: 127px;
+    height: 175px;
+    border-left: 2px solid #7f7f7f;
+    margin-left: -2px;
+    margin-top: 5px;
+    align-self: flex-end;
+}
+ .artists-title, .pab-title {
+    font-size: 35px;
+    line-height: 29.41px;
+    text-transform: uppercase;
+}
+
+/* social-icons */
+.social-icons {
+    display: none;
+    transition: 0.3s;
+    width: 17px;
+    text-align: center;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 5px;
+    left: 25px;
+    z-index: 2;
+    background: #fff;
+}
+
+.social-icons  img {
+    margin-bottom: 13px;
+    cursor: pointer;
+}
+
+.social-icons  img:hover {
+    opacity: 0.7;
+}
+
+.sidebar-bottom:hover .social-icons{
+    display: block;
+}
+
+.share {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    cursor: pointer;
+}
+
+/* titles */
+.c-title {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.title-h1.c-margin {
+    margin: 90px 0;
+}
+
+/* aside nav */
+.c-aside-nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+.c-aside-nav li {
+    margin-bottom: 50px;
+}
+
+.c-active {
+    font-weight: 700;
+}
+
+.capabilities-wrapper > div:not(:last-child){
+    border-right: 2px solid #7f7f7f;
+}
+
+.capabilities-wrapper > div:first-child  {
+    width: 260px;
+}
+
+.c-block {
+    width: calc(1440px - 125px - 360px);
+    padding: 35px;
+    position: relative;
+}
+
+.c-block-wrapper > div:not(:last-child)   {
+    border-right: 2px solid #7f7f7f;
+}
+
+.c-content {
+    position: relative;
+}
+
+.c-img {
+    margin-right: 50px;
+}
+
+.remove-paddings{
+   padding-top: 0;
+}
+
+.btn {
+    width: 210px;
+    height: 50px;
+    border: 2px solid #000000;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn:before {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: -2px;
+}
+
+.c-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    border: none;
+    text-align: left;
+    height: auto;
+    line-height: inherit;
+}
+
+.c-btn:after {
+    content: url(../img/btn-arrow.png);
+    position: absolute;
+    top: 50%;
+    right: -35px;
+    transform: translateY(-50%);
+}

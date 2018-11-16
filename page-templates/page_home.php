@@ -7,17 +7,12 @@ Template Name: Home page
 <?php get_header(); ?>
 <main>
 
-
   <div class="wrapper project-slider flx">
     <div class="slider-wrapper">
         <div class="slider">
             <div class="swiper-container">
-
                 <div class="swiper-wrapper">
-
-
-
-            <?php
+          <?php
            $quantity_project_start = 1;
             $query = new WP_Query( array( 'post_type' => 'project', 'posts_per_page' => 10, 'order' => 'DESC' ) );
             while ( $query->have_posts() ) {
@@ -31,8 +26,7 @@ Template Name: Home page
             </div>
             <?php
             $quantity_project_start++;
-              }
-            ?>
+              }?>
           </div>
       </div>
             <div class="swiper-pagination"></div>
@@ -41,8 +35,6 @@ Template Name: Home page
            <div class="btn slider-btn">Посмотреть анонс</div>
         </div>
     </div>
-
-
 
     <div class="sidebar">
         <div class="vertical-text">
@@ -60,7 +52,6 @@ Template Name: Home page
         </div>
     </div>
 </div>
-
 
       <div class="full-width">
                   <div class="wrapper flx artists-wrapper">
@@ -86,8 +77,6 @@ Template Name: Home page
                   </div>
               </div> <!-- end full-width -->
 
-
-
               <div class="full-width">
                   <div class="publications-wrapper wrapper flx">
                       <div class="publications">
@@ -97,27 +86,28 @@ Template Name: Home page
                               <div class="slider">
                                   <div class="swiper-container">
                                       <div class="swiper-wrapper">
-                                          <div class="swiper-slide" data-calendar="02 июня 2018">
-                                              <div class="pub-item flx">
-                                                  <img src="<?php echo get_template_directory_uri();?>/img/publication-img1.png" alt="photo">
-                                                  <div class="pub-descr">
-                                                      <h3>Арт-рынок в Украине: <br> как и где продается украинское искусство</h3>
-                                                      <p>Попробуем разобраться, как функционирует арт-рынок в Украине, и кто его основные игроки. А также узнаем тенденции и перспективы развития украинского искусства в будущем.</p>
-                                                      <div class="btn pub-btn">Читать больше</div>
-                                                  </div>
-                                              </div>
-                                          </div>
 
-                                          <div class="swiper-slide" data-calendar="18 августа 2018">
+                                        <?php
+                                         $quantity_publications_start = 1;
+                                          $query = new WP_Query( array( 'post_type' => 'publications', 'posts_per_page' => 10, 'order' => 'DESC' ) );
+                                          while ( $query->have_posts() ) {
+                                          	$query->the_post();
+                                          if($quantity_publications_start == 1){
+                                             $first_publications_time =  get_the_time('j F Y');
+                                          }?>
+                                          <div class="swiper-slide" data-calendar="<?php echo the_time('j F Y'); ?>">
                                               <div class="pub-item flx">
-                                                  <img src="<?php echo get_template_directory_uri();?>/img/publication-img1.png" alt="photo">
+                                                  <?php echo get_the_post_thumbnail(); ?>
                                                   <div class="pub-descr">
-                                                      <h3>Арт-рынок в Украине: <br> как и где продается украинское искусство</h3>
-                                                      <p>Попробуем разобраться, как функционирует арт-рынок в Украине, и кто его основные игроки. А также узнаем тенденции и перспективы развития украинского искусства в будущем.</p>
-                                                      <div class="btn pub-btn">Читать больше</div>
+                                                      <h3><?php echo the_title(); ?></h3>
+                                                      <?php echo  get_post_meta(get_the_ID(), 'publications_description', true); ?>
+                                                      <a href="<?php echo get_permalink(); ?>" class="btn pub-btn">Читать больше</a>
                                                   </div>
                                               </div>
                                           </div>
+                                          <?php
+                                          $quantity_publications_start++;
+                                            }?>
                                       </div>
                                   </div>
 
@@ -127,7 +117,7 @@ Template Name: Home page
 
                       </div>
                       <div class="sidebar">
-                          <p class="pub-data vertical-text">02 июня 2018</p>
+                          <p class="pub-data vertical-text"><?php echo $first_publications_time; ?></p>
                           <div class="sidebar-bottom">
                               <img class="share" src="<?php echo get_template_directory_uri();?>/img/icon-share.png" alt="share">
                               <div class="social-icons">

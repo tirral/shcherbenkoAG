@@ -1,12 +1,12 @@
 <?php
 /**
- * The template for displaying the artists taxonomy.
- *
- */
+ * The template for displaying the single artists taxonomy.
+ * http://shcherbenko.odev.io/artists/artists_1/
+*/
 
  /**
   * Enqueue styles for artists one page.
-  */
+ */
  function shcherbenko_scripts_artists() {
      wp_enqueue_style( 'shcherbenko-artistsone', get_template_directory_uri() . '/css/styles_artistsone.css', false, NULL, 'all');
    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -22,12 +22,9 @@ $taxonomy = get_queried_object();
 $artistsId = $taxonomy->term_id;
 $artistsSlug = $taxonomy->slug;
 $artistsName = $taxonomy->name;
-
 echo 'template-parts/template-single-artists.php';
 ?>
-
-
-<main>
+      <main>
         <div class="wrapper">
                 <div class="artists-represent">
                     <h1 class="title-h1"> <?php $taxonomy = get_queried_object(); echo  $taxonomy->name; ?></h1>
@@ -149,69 +146,62 @@ echo 'template-parts/template-single-artists.php';
                               <?php
                                   }
                               ?>
-                                        </div>
+                            </div>
                                       <?php } ?>
                               <!-- КОНЕЦ ЦЫКЛА ДЛЯ ВЫВОДА ПЕРСОНАЛЬНЫХ ВЫСТАВОК -->
                               </div>
                               </div> <!-- flx -->
-
-
-<div class="flx">
-<!-- НАЧАЛО ЦЫКЛА ДЛЯ ВЫВОДА ГРУППОВЫХ ВЫСТАВОК -->
-  <?php
-    $entries = get_term_meta($artistsId , 'artists_group_exhibitions', true );
-    if (!empty($entries)) {
-    ?>
-  <div class="vertical-text">
-      <p class="title-h1">Групповые выставки</p>
-  </div>
-  <div>
-      <div class="artist-exhibitions-list artist-exhibitions-list-individ">
-<?php
-              foreach ( (array) $entries as $key => $entry ) {
-              $year =  '';
-              $desc_1 =  '';
-              $desc_2 =  '';
-              $desc_3 =  '';
-          ?>
-          <div class="artist-exhibitions-item">
-          <?php
-                if ( isset( $entry['artists_group_exhibitions_data'] ) ) {
-                  $year = wpautop( $entry['artists_group_exhibitions_data'] );
-                  ?>
-                  <div class="artist-exhibitions-item-year"><?php echo $year; ?></div>
-                  <?php
-                }
-                if ( isset( $entry['artists_group_exhibitions_name_1'] ) ) {
-                  $desc_1 = wpautop( $entry['artists_group_exhibitions_name_1'] );
-                  ?>
-                  <div><?php echo $desc_1; ?></div>
-                  <?php
-                }
-                if ( isset( $entry['artists_group_exhibitions_name_2'] ) ) {
-                  $desc_2 = wpautop( $entry['artists_group_exhibitions_name_2'] );
-                  ?>
-                  <div><?php echo $desc_2; ?></div>
-                  <?php
-                }
-                if ( isset( $entry['artists_group_exhibitions_name_3'] ) ) {
-                  $desc_3 = wpautop( $entry['artists_group_exhibitions_name_3'] );
-                  ?>
-                  <div><?php echo $desc_3; ?></div>
-                  <?php
-                }
-                ?>
-          </div>
-          <?php
-              }
-          ?>
-          </div>
-<?php } ?>
-          <!-- КОНЕЦ ЦЫКЛА ДЛЯ ВЫВОДА ГРУППОВЫХ ВЫСТАВОК -->
-</div>
-</div> <!-- flx -->
+                              <div class="flx">
+                              <!-- НАЧАЛО ЦЫКЛА ДЛЯ ВЫВОДА ГРУППОВЫХ ВЫСТАВОК -->
+                                <?php
+                                  $entries = get_term_meta($artistsId , 'artists_group_exhibitions', true );
+                                  if (!empty($entries)) {
+                                  ?>
+                                <div class="vertical-text">
+                                    <p class="title-h1">Групповые выставки</p>
+                                </div>
+                                <div>
+                                    <div class="artist-exhibitions-list artist-exhibitions-list-individ">
+                                     <?php
+                                            foreach ( (array) $entries as $key => $entry ) {
+                                            $year =  '';
+                                            $desc_1 =  '';
+                                            $desc_2 =  '';
+                                            $desc_3 =  '';
+                                        ?>
+                                        <div class="artist-exhibitions-item">
+                                        <?php
+                                              if ( isset( $entry['artists_group_exhibitions_data'] ) ) {
+                                                $year = wpautop( $entry['artists_group_exhibitions_data'] );
+                                                ?>
+                                                <div class="artist-exhibitions-item-year"><?php echo $year; ?></div>
+                                                <?php
+                                              }
+                                              if ( isset( $entry['artists_group_exhibitions_name_1'] ) ) {
+                                                $desc_1 = wpautop( $entry['artists_group_exhibitions_name_1'] );
+                                                ?>
+                                                <div><?php echo $desc_1; ?></div>
+                                                <?php
+                                              }
+                                              if ( isset( $entry['artists_group_exhibitions_name_2'] ) ) {
+                                                $desc_2 = wpautop( $entry['artists_group_exhibitions_name_2'] );
+                                                ?>
+                                                <div><?php echo $desc_2; ?></div>
+                                                <?php
+                                              }
+                                              if ( isset( $entry['artists_group_exhibitions_name_3'] ) ) {
+                                                $desc_3 = wpautop( $entry['artists_group_exhibitions_name_3'] );
+                                                ?>
+                                                <div><?php echo $desc_3; ?></div>
+                                                <?php } ?>
+                                        </div>
+                                        <?php } ?>
+                                        </div>
+                                    <?php } ?>
+                                        <!-- КОНЕЦ ЦЫКЛА ДЛЯ ВЫВОДА ГРУППОВЫХ ВЫСТАВОК -->
+                                  </div>
+                              </div> <!-- flx -->
                 </div> <!-- end artist-exhibitions -->
-
                 <div class="sidebar"></div>
             </div> <!-- end wrapper -->
         </div> <!-- end full-width -->

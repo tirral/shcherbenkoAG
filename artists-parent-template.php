@@ -40,10 +40,21 @@ case 'single_project_post_by_term':
     include_once( 'template-parts/template-single-project.php' );
 break;
 
-// Шаблон всех ПРОЕКТОВ одного художника (вывод архива)
+// Шаблон всех ПРОЕКТОВ одного художника (вывод архива) http://shcherbenko.odev.io/project/artists_2/
   case 'post_project_archive_by_term':
       echo "<h1>Шаблон всех ПРОЕКТОВ одного художника (вывод архива)</h1>";
   break;
+
+
+  // Шаблон одной ПУБЛИКАЦИИ одного художника http://shcherbenko.odev.io/publications/artists_1/publications-2/
+  case 'single_publications_post_by_term':
+      include_once( 'template-parts/template-single-publications.php' );
+  break;
+
+  // Шаблон всех ПУБЛИКАЦИЙ одного художника (вывод архива)
+    case 'post_publications_archive_by_term':
+      include_once( 'template-parts/template-artist-all-publications.php' );
+    break;
 }
 
 
