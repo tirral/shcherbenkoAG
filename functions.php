@@ -256,7 +256,7 @@ function artists_rewrites()
 {
 
     // Страница со списком постов терма определенного типа поста с номером страницы для пагинации
-    add_rewrite_rule('^(works)/([^/]*)/page/([0-9]+)/?', 'index.php?page_type=post_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&taxonomy=years&term=$matches[2]&paged=$matches[3]', 'top');
+    add_rewrite_rule('^(works)/([^/]*)/page/([0-9]+)/?', 'index.php?page_type=post_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&term=$matches[2]&paged=$matches[3]', 'top');
 
     // Страница с одним постом терма определенного типа поста
     add_rewrite_rule('^(works)/([^/]*)/([^/]*)?', 'index.php?page_type=single_post_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&post_slug=$matches[3]', 'top');
