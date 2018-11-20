@@ -27,13 +27,8 @@
 
 register_taxonomy('artists', array('works', 'project', 'publications'), $args_country);
 
- // register_taxonomy(
- //     'artists',
- //     array(
- //        'works'
- //
- //         // your other args...
- //         // 'rewrite' => array( 'slug' => 'artists', 'with_front' => true ),
- //     ),
- //     $args_country
- // );
+ add_action('admin_menu', 'linked_url');
+ function linked_url()
+ {
+     add_menu_page('linked_url', 'Художники', 'read', 'edit-tags.php?taxonomy=artists', '', 'dashicons-admin-customizer', 25);
+ }

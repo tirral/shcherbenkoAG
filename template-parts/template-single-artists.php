@@ -37,9 +37,10 @@ echo 'template-parts/template-single-artists.php';
                     <nav>
                         <ul class="artist-nav-list">
                             <li class="artist-nav-item"><a href="#">Проекты</a></li>
-                            <li class="artist-nav-item"><a href="#">Публикации</a></li>
+                            <li class="artist-nav-item"><a href="<?php echo  home_url( '/works/'. $artistsSlug ); ?>" class="linkOK">Публикации</a></li>
                             <li class="artist-nav-item"><a href="#">Каталоги</a></li>
-                            <li class="artist-nav-item"><a href="#">Работы</a></li>
+                            <li class="artist-nav-item"><a href="<?php echo  home_url( '/works/'. $artistsSlug ); ?>" class="linkOK">Работы</a></li>
+
                         </ul>
                     </nav>
                     <div class="sidebar-bottom">

@@ -16,7 +16,7 @@ $artistsSlug = $taxonomy->slug;
     </div>
     <div class="btn">
       <!-- ССЫЛКА НА СТРАНИЦУ АРХИВА ВСЕХ РАБОТ ОДНОГО ХУДОЖНИКА  -->
-          <a href="<?php echo  home_url( '/works/'. $artistsSlug ); ?>">ВСЕ РАБОТЫ ХУДОЖНИКА</a>
+          <a href="<?php echo  home_url( '/works/'. $artistsSlug ); ?>" class="linkOK">ВСЕ РАБОТЫ ХУДОЖНИКА</a>
     </div>
 </div>
 

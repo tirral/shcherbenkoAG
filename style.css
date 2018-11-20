@@ -191,3 +191,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .pagination a.nextpostslink, .pagination a.previouspostslink{
   font-size: 12px;
 }
+
+a.btn.m-btn{
+  display: block;
+}

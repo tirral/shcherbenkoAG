@@ -3,6 +3,7 @@ add_action( 'cmb2_admin_init', 'artists_metabox' );
 /**
  * Define the metabox and field configurations.
  */
+ 
 function artists_metabox() {
 
 //    Main metabox

@@ -19,6 +19,17 @@
     <title>Main page</title>
 
 	<?php wp_head(); ?>
+
+<style>
+.linkOK:after {
+  content: 'linkOk';
+  font-size: 8px;
+  color: red;
+}
+</style>
+
+
+
 </head>
 <body>
 

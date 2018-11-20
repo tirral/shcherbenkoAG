@@ -1,3 +1,4 @@
+
 <?php
 /**
  * The template for displaying the single project page.
@@ -25,10 +26,15 @@ $artistsId = $taxonomy->term_id;
 $artistsSlug = $taxonomy->slug;
 $artistsName = $taxonomy->name;
 
-echo 'template-parts/template-single-publications.php';
+echo 'single-myxi_publications.php';
 
-$query = new WP_Query( array( 'post_type' => 'publications', 'name' => $slug ) );
+$postID = get_the_ID();
 
+?>
+
+
+<?php
+$query = new WP_Query( array( 'post_type' => 'myxi_publications', 'page_id' => $postID ) );
 while ( $query->have_posts() ) {
 	$query->the_post();
   $postMainId = get_the_ID();
