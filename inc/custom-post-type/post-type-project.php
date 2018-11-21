@@ -69,6 +69,10 @@ function shcherbenko_toolbox_register_project() {
 add_action( 'init', 'shcherbenko_toolbox_register_project', 0 );
 
 
+
+
+
+
 // Register the Project taxonomy
 	add_action( 'init', 'create_project_tupes' );
 

@@ -160,6 +160,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 /* PAGINATION */
 
+
+.pagination{
+text-align: center;
+display: block;
+padding: 40px 20px;
+}
+
+
 .pagination a, .pagination span {
   display: inline-block;
     width: 35px;

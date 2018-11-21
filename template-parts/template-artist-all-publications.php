@@ -1,11 +1,11 @@
 <?php
 /**
- * The template for displaying artists all works.
- * http://shcherbenko.odev.io/works/artists_1/
+ * The template for displaying artists all publications.
+ * http://shcherbenko.odev.io/publications/artists_1/
 */
 
  /**
-  * Enqueue styles for artists all works.
+  * Enqueue styles for artists all publications.
   */
  function shcherbenko_scripts_artistallpublications() {
  		wp_enqueue_style( 'shcherbenko-artistallpublications', get_template_directory_uri() . '/css/styles_artistallpublications.css', false, NULL, 'all');
@@ -24,7 +24,7 @@ $artistsSlug = $taxonomy->slug;
 $artistsName = $taxonomy->name;
 echo 'template-parts/template-artist-all-publications.php';
 ?>
-<main>
+  <main>
         <div class="wrapper">
             <h1 class="title-h1 c-margin"><?php echo $artistsName; ?></h1>
         </div>
@@ -33,7 +33,7 @@ echo 'template-parts/template-artist-all-publications.php';
         <?php
         $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
         $params = array(
-         'posts_per_page' => 20, // количество постов на странице
+         'posts_per_page' => 4, // количество постов на странице
          'post_type' => 'publications',
          'paged' => $current_page, // текущая страница
          'tax_query' => array(
@@ -58,8 +58,6 @@ echo 'template-parts/template-artist-all-publications.php';
       </div>
       <!-- КОНЕЦ ЦЫКЛА ДЛЯ ВЫВОДА ВСЕХ ПУБЛИКАЦИЙ ОДНОГО ХУДОЖНИКА-->
 
-
-
-
     </main>
+    
 <?php get_footer();?>

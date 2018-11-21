@@ -182,6 +182,8 @@ require get_template_directory() . '/inc/metaboxes/works-metaboxes.php';
 require get_template_directory() . '/inc/metaboxes/project-metaboxes.php';
 require get_template_directory() . '/inc/metaboxes/publications-metaboxes.php';
 require get_template_directory() . '/inc/metaboxes/myxi-metaboxes.php';
+require get_template_directory() . '/inc/metaboxes/capabilities-metaboxes.php';
+require get_template_directory() . '/inc/metaboxes/education-metaboxes.php';
 
 /**
  * Register custom post types
@@ -192,6 +194,10 @@ require get_template_directory() . '/inc/custom-post-type/post-type-project.php'
 require get_template_directory() . '/inc/custom-post-type/post-type-publications.php';
 require get_template_directory() . '/inc/custom-post-type/post-type-myxi.php';
 require get_template_directory() . '/inc/custom-post-type/post-type-myxi_publications.php';
+require get_template_directory() . '/inc/custom-post-type/post-type-capabilities.php';
+require get_template_directory() . '/inc/custom-post-type/post-type-education.php';
+
+
 /**
  * Register custom taxonomy
  */
@@ -246,8 +252,9 @@ function new_submenu_class($menu, $args)
     $menu = preg_replace('/ class="sub-menu"/', '/ class="submenu" /', $menu);
     return $menu;
 }
-
 add_filter('wp_nav_menu', 'new_submenu_class');
+
+
 
 
 add_action('init', 'artists_rewrites');
@@ -263,6 +270,8 @@ function artists_rewrites()
 
     // Страница со списком постов терма определенного типа поста
     add_rewrite_rule('^(works)/([^/]*)/?', 'index.php?page_type=post_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]', 'top');
+
+
 
 
     // Страница со списком постов терма определенного типа поста с номером страницы для пагинации

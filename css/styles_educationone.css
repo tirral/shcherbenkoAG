@@ -1,0 +1,209 @@
+
+
+.sidebar {
+    width: 125px;
+    position: relative;
+}
+
+.artists-title, .pab-title {
+    font-size: 35px;
+    line-height: 29.41px;
+    text-transform: uppercase;
+}
+
+/* main-nav */
+.main-nav {
+    margin: 90px 125px 70px 0;
+}
+
+.main-nav > nav {
+    text-align: right;
+}
+
+.nav_item {
+    display: inline;
+}
+
+.nav_item > a {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav_item:not(:last-child) {
+    margin-right: 30px;
+}
+
+.nk_to-all-projects {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 27px;
+    text-transform: uppercase;
+}
+
+.nk_to-all-projects:before {
+    content: url(../img/arrow-back.png);
+    margin-right: 10px;
+}
+
+/* slider */
+.all-proj-slider {
+    position: relative;
+    width: 420px !important;
+    height: 300px;
+    margin: 0 85px 85px 280px;
+}
+
+.all-proj-slider .swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.all-proj-slider .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    width: 16px;
+    height: 26px;
+    background-size: contain;
+}
+
+.swiper-button-next {
+    background-image: url(../img/arrow-next.png);
+    right: -100px;
+}
+
+.swiper-button-prev {
+    background-image: url(../img/arrow-prev.png);
+    left: -280px;
+}
+
+.swiper-pagination {
+    bottom: -45px;
+    font-size: 13px;
+}
+
+.all-proj-page .share {
+    bottom: auto;
+}
+.proj-name {
+    align-self: flex-end;
+    margin-bottom: 85px;
+}
+
+/* project description */
+.proj-description-section > div:not(:last-child) {
+    border-right: 2px solid #7f7f7f;
+}
+
+.proj-description-section p {
+    line-height: 22px;
+}
+
+.proj-description-title {
+    width: 250px;
+}
+
+.proj-description-info {
+    width: calc(100% - 250px - 125px);
+    padding: 50px 30px 45px 30px;
+}
+
+/* social-icons */
+.social-icons {
+    display: none;
+    transition: 0.3s;
+    width: 17px;
+    text-align: center;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 5px;
+    left: 25px;
+    z-index: 2;
+    background: #fff;
+}
+
+.social-icons  img {
+    margin-bottom: 13px;
+    cursor: pointer;
+}
+
+.social-icons  img:hover {
+    opacity: 0.7;
+}
+
+.sidebar-bottom:hover .social-icons{
+    display: block;
+}
+
+.share {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    cursor: pointer;
+}
+
+/* btn */
+.btn {
+    width: 210px;
+    height: 50px;
+    border: 2px solid #000000;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+}
+
+.artist-work .btn {
+    border: none;
+    width: 240px;
+    margin: 25px 0;
+}
+
+.artist-work .btn:after {
+    content: url(../img/btn-arrow.png);
+    position: absolute;
+    top: 50%;
+    right: -35px;
+    transform: translateY(-50%);
+}
+
+.btn:before {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: -2px;
+}
+
+.flx img{
+  margin: 30px 40px;
+}
+
+
+
+/* ========================TIRRAL ========================*/
+
+.lecture-author, .lecture-price {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+}
