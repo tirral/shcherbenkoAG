@@ -22,10 +22,7 @@
                 <div class="sidebar-bottom">
                     <img class="share" src="<?php echo get_template_directory_uri();?>/img/icon-share.png" alt="share">
                     <div class="social-icons">
-                        <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
-                        <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-insta.png" alt="instagram"></a>
-                        <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
-                        <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-youtube.png" alt="youtube"></a>
+                        <a href="https://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
                     </div>
                 </div>
             </div>

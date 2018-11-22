@@ -256,11 +256,41 @@ add_filter('wp_nav_menu', 'new_submenu_class');
 
 
 
+/*
+* Social share icons
+*/
+function social_share_gorizontal(){ ?>
+  <div class="sidebar-bottom">
+      <img class="share" src="<?php echo get_template_directory_uri();?>/img/icon-share.png" alt="share">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/sharer.php?u=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
+        <a href="https://plus.google.com/share?url=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-gp"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
+    </div>
+  </div>
+<?php }
+
+
+
+
 
 add_action('init', 'artists_rewrites');
 
 function artists_rewrites()
 {
+
+    // Страница со списком постов терма определенного типа поста и значением meta "year" с номером страницы для пагинации
+    add_rewrite_rule(
+        '^(project)/([^/]*)/([0-9]{4})/page/([0-9]+)/?',
+        'index.php?page_type=post_project_archive_by_term&post_type=$matches[1]&artists=$matches[2]&meta_key=year&meta_value=$matches[3]&paged=$matches[4]',
+        'top'
+    );
+
+    // Страница со списком постов терма определенного типа поста и значением meta "year"
+    add_rewrite_rule(
+        '^(project)/([^/]*)/([0-9]{4})/?',
+        'index.php?page_type=post_project_archive_by_term&post_type=$matches[1]&artists=$matches[2]&post_year=$matches[3]',
+        'top'
+    );
 
     // Страница со списком постов терма определенного типа поста с номером страницы для пагинации
     add_rewrite_rule('^(works)/([^/]*)/page/([0-9]+)/?', 'index.php?page_type=post_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&term=$matches[2]&paged=$matches[3]', 'top');
@@ -285,7 +315,7 @@ function artists_rewrites()
 
 
     //  Страница со списком постов терма определенного типа поста с номером страницы для пагинации
-    add_rewrite_rule('^(publications)/([^/]*)/page/([0-9]+)/?', 'index.php?page_type=post_publications_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&paged=$matches[3]', 'top');
+    add_rewrite_rule('^(publications)/([^/]*)/page/([0-9]+)/?', 'index.php?page_type=post_publications_archive_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&term=$matches[2]&paged=$matches[3]', 'top');
     //
     //  Страница с одним постом терма определенного типа поста
     add_rewrite_rule('^(publications)/([^/]*)/([^/]*)?', 'index.php?page_type=single_publications_post_by_term&term_post_type=$matches[1]&taxonomy=artists&term=$matches[2]&post_slug=$matches[3]', 'top');
@@ -311,6 +341,7 @@ function artists_query_vars($vars)
     $vars[] = 'page_type';
     $vars[] = 'post_slug';
     $vars[] = 'term_post_type';
+    $vars[] = 'post_year';
     return $vars;
 }
 

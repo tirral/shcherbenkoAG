@@ -24,10 +24,11 @@ $artistsSlug = $taxonomy->slug;
 $artistsName = $taxonomy->name;
 echo 'template-parts/template-single-artists.php';
 ?>
+
       <main>
         <div class="wrapper">
                 <div class="artists-represent">
-                    <h1 class="title-h1"> <?php $taxonomy = get_queried_object(); echo  $taxonomy->name; ?></h1>
+                    <h1 class="title-h1"> <?php $taxonomy = get_queried_object(); echo  $artistsName ?></h1>
                     <h3 class="title-h3"><?php echo get_term_meta($artistsId, 'artists_date_of_birth', true); ?></h3>
                 </div>
         </div>
@@ -43,16 +44,15 @@ echo 'template-parts/template-single-artists.php';
 
                         </ul>
                     </nav>
+
                     <div class="sidebar-bottom">
                         <img class="share" src="<?php echo get_template_directory_uri();?>/img/icon-share.png" alt="share">
                         <div class="social-icons">
-                            <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
-                            <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-insta.png" alt="instagram"></a>
-                            <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
-                            <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-youtube.png" alt="youtube"></a>
-                        </div>
+                          <a href="https://www.facebook.com/sharer.php?u=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
+                      </div>
                     </div>
                 </div>
+
                 <!-- НАЧАЛО ЦЫКЛА ДЛЯ ВЫВОДА ПОСЛЕДНЕЙ РАБОТЫ ХУДОЖНИКА -->
                           <?php
                           $args = array(

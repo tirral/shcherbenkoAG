@@ -87,3 +87,30 @@ add_action( 'init', 'shcherbenko_toolbox_register_project', 0 );
 			)
 		);
 	}
+
+add_action('add_meta_boxes', 'add_project_post_type_meta');
+
+function add_project_post_type_meta(){
+    add_meta_box('project_data', 'Год', 'display_project_post_type_meta', 'project', 'side');
+}
+
+function display_project_post_type_meta($post){
+    $year = get_post_meta($post->ID, 'year', true);
+    ?>
+    <input type="text" value="<?= strlen($year) ? intval( $year ) : date('Y') ?>" id="year" name="year">
+    <input type="hidden" name="project_nonce" value="<?php echo wp_create_nonce('project_nonce'); ?>" />
+    <?php
+}
+
+add_action('save_post', 'update_project_post_type_meta');
+
+function update_project_post_type_meta( $post_id ){
+
+    if ( empty($_POST['project_nonce'])) return false;
+    if ( ! wp_verify_nonce($_POST['project_nonce'], 'project_nonce') ) return false;
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE  ) return false;
+    if ( !current_user_can('edit_post', $post_id) ) return false;
+
+    update_post_meta( $post_id, 'year', trim( $_POST['year'] ) );
+
+}

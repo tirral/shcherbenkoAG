@@ -27,13 +27,14 @@ echo 'template-parts/template-artist-all-publications.php';
   <main>
         <div class="wrapper">
             <h1 class="title-h1 c-margin"><?php echo $artistsName; ?></h1>
+            <h3 class="title-h3">Все публикации автора</h3>
         </div>
 
         <!-- НАЧАЛО ЦЫКЛА ДЛЯ ВЫВОДА ВСЕХ ПУБЛИКАЦИЙ ОДНОГО ХУДОЖНИКА -->
         <?php
         $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
         $params = array(
-         'posts_per_page' => 4, // количество постов на странице
+         'posts_per_page' => 3, // количество постов на странице
          'post_type' => 'publications',
          'paged' => $current_page, // текущая страница
          'tax_query' => array(
@@ -47,10 +48,14 @@ echo 'template-parts/template-artist-all-publications.php';
         query_posts($params);
         $wp_query->is_archive = true;
         $wp_query->is_home = false;
+        $a=1;
         while(have_posts()): the_post();
-
-             get_template_part( 'template-parts/content', 'artistallpublications' );
-
+        if($a==1){
+           get_template_part( 'template-parts/content', 'artistallpublicationsfirst' );
+        }else{
+          get_template_part( 'template-parts/content', 'artistallpublications' );
+        }
+        $a++;
         endwhile;
         ?>
       <div class="pagination">
@@ -59,5 +64,24 @@ echo 'template-parts/template-artist-all-publications.php';
       <!-- КОНЕЦ ЦЫКЛА ДЛЯ ВЫВОДА ВСЕХ ПУБЛИКАЦИЙ ОДНОГО ХУДОЖНИКА-->
 
     </main>
+
+
+
+
+
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php get_footer();?>

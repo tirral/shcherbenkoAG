@@ -1,10 +1,11 @@
-<div class="full-width" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="full-width no-border" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="wrapper capabilities-wrapper flx">
         <div class="c-aside-nav">
 
+
         </div>
-        <div class="c-block-wrapper flx">
-            <div class="c-block  flx">
+        <div class="c-block-wrapper  flx">
+            <div class="c-block  remove-paddings flx">
                 <?php  the_post_thumbnail(); ?>
                 <div class="c-content">
                     <div>
@@ -16,8 +17,8 @@
             </div>
 
             <div class="sidebar">
-              <?php social_share_gorizontal(); ?>
-            </div>
+                <?php social_share_gorizontal(); ?>
+          </div>
         </div>
     </div>
 </div> <!-- end full-width -->

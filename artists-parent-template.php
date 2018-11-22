@@ -2,7 +2,9 @@
 
 
 $page_type = get_query_var('page_type');
-echo $page_type;
+
+//echo $page_type;
+
 switch ($page_type) {
     // Шаблон списка всех художников (архив термов)
     // $page = get_query_var('paged');
@@ -44,6 +46,22 @@ switch ($page_type) {
 // Шаблон всех ПРОЕКТОВ одного художника (вывод архива) http://shcherbenko.odev.io/project/artists_2/
     case 'post_project_archive_by_term':
         echo "<h1>Шаблон всех ПРОЕКТОВ одного художника (вывод архива)</h1>";
+        $post_year = get_query_var('post_year');
+        global $query_string;
+        if( $post_year ){
+            $query_string .= '&meta_key=year&meta_value=' . intval($post_year);
+        }
+        query_posts($query_string);
+        while (have_posts()): the_post();
+
+            ?>
+            [<?= get_the_ID() ?>]<?php the_title() ?><br>
+            year: <?= get_post_meta(get_the_ID(), 'year', true) ?><br>
+            artists: <?= get_the_term_list( get_the_ID(), 'artists' ) ?>
+            <hr>
+            <?php
+            
+        endwhile;
         break;
 
 
@@ -56,6 +74,9 @@ switch ($page_type) {
     case 'post_publications_archive_by_term':
         include_once('template-parts/template-artist-all-publications.php');
         break;
+
+
+
 }
 
 

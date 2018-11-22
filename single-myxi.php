@@ -4,8 +4,6 @@
  *
  */
 
-
-
  /**
   * Enqueue scripts and styles.
   */
@@ -17,23 +15,15 @@
   }
  }
  add_action( 'wp_enqueue_scripts', 'shcherbenko_scripts_single_myxi' );
-
 get_header();
-
-
 echo 'single-myxi.php';
-
 
 $cur_terms = get_the_terms( get_the_ID(), 'myxi_types' );
 foreach( $cur_terms as $cur_term ){
 	 $myxi_term = $cur_term->name;
 }
-echo $myxi_term;
-
 $postID = get_the_ID();
-
 ?>
-
 
 <?php
 $query = new WP_Query( array( 'post_type' => 'myxi', 'page_id' => $postID ) );
@@ -215,30 +205,26 @@ while ( $query->have_posts() ) {
                                                         <?php  } ?>
                                                       <!-- КОНЕЦ ЦЫКЛА ДЛЯ ВЫВОДА ФИНАЛИСТОВ КОНКУРСА -->
 
+                                    </div> <!-- end m-aside-nav -->
+                                      <div class="main-content">
+                                          <div class="m-slider-wrapper">
+                                              <div class="m-slider">
+                                              <div class="swiper-container">
+                                                  <div class="swiper-wrapper">
 
+                                                    <?php
+                                                    function cmb2_output_file_list( $file_list_meta_key, $img_size = 'medium' ) {
+                                                    $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
+                                                    foreach ( (array) $files as $attachment_id => $attachment_url ) {
+                                                    echo '<div class="swiper-slide">';?>
+                                                    <?php echo wp_get_attachment_image( $attachment_id, $img_size ) ?>
+                                                    <?php echo '</div>';
+                                                    }
+                                                  }?>
+                                                    <?php cmb2_output_file_list( 'myxi_gallery', 'small' ); ?>
 
-
-                </div> <!-- end m-aside-nav -->
-                <div class="main-content">
-                    <div class="m-slider-wrapper">
-                        <div class="m-slider">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-
-
-                              <?php
-                              function cmb2_output_file_list( $file_list_meta_key, $img_size = 'medium' ) {
-                              $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
-                              foreach ( (array) $files as $attachment_id => $attachment_url ) {
-                              echo '<div class="swiper-slide">';?>
-                              <?php echo wp_get_attachment_image( $attachment_id, $img_size ) ?>
-                              <?php echo '</div>';
-                              }
-                            }?>
-                              <?php cmb2_output_file_list( 'myxi_gallery', 'small' ); ?>
-
-                            </div>
-                        </div>
+                                              </div>
+                                          </div>
 
                         <div class="swiper-pagination"></div>
                         <div class="swiper-button-next"></div>
@@ -248,19 +234,15 @@ while ( $query->have_posts() ) {
                         <div class="share-wrapper">
                             <img class="share" src="<?php echo get_template_directory_uri();?>/img/icon-share.png" alt="share">
                             <div class="social-icons">
-                                <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-insta.png" alt="instagram"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-youtube.png" alt="youtube"></a>
+                                <a href="https://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>&amp;" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
                             </div>
                         </div>
-                    </div> <!-- end m-slider-wrapper -->
 
+                    </div> <!-- end m-slider-wrapper -->
                     <div class="m-info">
                       <h2 class="title-h1">ПРО КОНКУРС МУХІ <?php echo  get_post_meta(get_the_ID(), 'myxi_year', true); ?></h2>
                       <?php  echo the_content(); ?>
                     </div>
-
 
                     <div class="m-pubs">
                         <h2 class="title-h1">ПУБЛІКАЦІЇ ПРО КОНКУРС МУХІ <?php echo  get_post_meta(get_the_ID(), 'myxi_year', true); ?></h2>
@@ -502,7 +484,7 @@ while ( $query->have_posts() ) {
                                          </div>
                                        <?php  } ?>
                                        <!-- КОНЕЦ ЦЫКЛА ДЛЯ ВЫВОДА ИНСТУЦИОНАЛЬНОЙ ПОДДЕРЖКИ -->
-                </div>
+                    </div>
                 <div class="sidebar"></div>
             </div> <!-- end wrapper -->
         </div> <!-- end full-width -->

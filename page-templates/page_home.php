@@ -15,18 +15,30 @@ Template Name: Home page
           <?php
            $quantity_project_start = 1;
             $query = new WP_Query( array( 'post_type' => 'project', 'posts_per_page' => 10, 'order' => 'DESC' ) );
+
             while ( $query->have_posts() ) {
             	$query->the_post();
             if($quantity_project_start == 1){
                $first_project_title = get_the_title();
                $first_project_time = get_post_meta(get_the_ID(), 'project_time', true);
-            }?>
+                }?>
+
+
             <div class="swiper-slide" data-name="<?php echo the_title(); ?>" data-calendar="<?php echo  get_post_meta(get_the_ID(), 'project_time', true); ?>">
                 <a href="<?php echo get_permalink(); ?>"><?php echo get_the_post_thumbnail(); ?></a>
+                <a href="https://www.facebook.com/sharer.php?u=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
+                <a href="https://plus.google.com/share?url=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-gp"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
             </div>
+
+
+
+
+
+
             <?php
             $quantity_project_start++;
               }?>
+
           </div>
       </div>
             <div class="swiper-pagination"></div>
@@ -41,15 +53,8 @@ Template Name: Home page
             <p class="project-title"> <?php echo $first_project_title; ?></p>
             <p class="pub-data"><?php echo $first_project_time; ?></p>
         </div>
-        <div class="sidebar-bottom">
-            <img class="share" src="<?php echo get_template_directory_uri();?>/img/icon-share.png" alt="share">
-            <div class="social-icons">
-                <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
-                <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-insta.png" alt="instagram"></a>
-                <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
-                <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-youtube.png" alt="youtube"></a>
-            </div>
-        </div>
+            <?php social_share_gorizontal(); ?>
+            <?php echo 'не работает' ?>
     </div>
 </div>
 
@@ -102,6 +107,8 @@ Template Name: Home page
                                                       <h3><?php echo the_title(); ?></h3>
                                                       <?php echo  get_post_meta(get_the_ID(), 'publications_description', true); ?>
                                                       <a href="<?php echo get_permalink(); ?>" class="btn pub-btn">Читать больше</a>
+                                                      <a href="https://www.facebook.com/sharer.php?u=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
+                                                      <a href="https://plus.google.com/share?url=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-gp"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
                                                   </div>
                                               </div>
                                           </div>
@@ -118,15 +125,7 @@ Template Name: Home page
                       </div>
                       <div class="sidebar">
                           <p class="pub-data vertical-text"><?php echo $first_publications_time; ?></p>
-                          <div class="sidebar-bottom">
-                              <img class="share" src="<?php echo get_template_directory_uri();?>/img/icon-share.png" alt="share">
-                              <div class="social-icons">
-                                  <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
-                                  <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-insta.png" alt="instagram"></a>
-                                  <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
-                                  <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-youtube.png" alt="youtube"></a>
-                              </div>
-                          </div>
+                            <?php social_share_gorizontal(); ?>
                       </div>
                   </div> <!-- end publications-wrapper -->
               </div>

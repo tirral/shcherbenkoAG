@@ -13,6 +13,7 @@
     text-transform: uppercase;
 }
 
+
 /* social-icons */
 .social-icons {
     display: none;
@@ -143,4 +144,20 @@
     top: 50%;
     right: -35px;
     transform: translateY(-50%);
+}
+
+
+
+
+/* ============================ TIRRAL ====================================== */
+.c-block img{
+  margin-right: 50px;
+}
+
+.title-h1.c-margin {
+    margin: 90px 0 10px 0;
+}
+
+.title-h3{
+  margin: 5px 0 90px 0;
 }
