@@ -23,17 +23,11 @@ Template Name: Home page
                $first_project_time = get_post_meta(get_the_ID(), 'project_time', true);
                 }?>
 
-
             <div class="swiper-slide" data-name="<?php echo the_title(); ?>" data-calendar="<?php echo  get_post_meta(get_the_ID(), 'project_time', true); ?>">
                 <a href="<?php echo get_permalink(); ?>"><?php echo get_the_post_thumbnail(); ?></a>
                 <a href="https://www.facebook.com/sharer.php?u=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
                 <a href="https://plus.google.com/share?url=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-gp"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
             </div>
-
-
-
-
-
 
             <?php
             $quantity_project_start++;

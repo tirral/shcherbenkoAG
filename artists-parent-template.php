@@ -43,27 +43,10 @@ switch ($page_type) {
         include_once('template-parts/template-single-project.php');
         break;
 
-// Шаблон всех ПРОЕКТОВ одного художника (вывод архива) http://shcherbenko.odev.io/project/artists_2/
+// Шаблон всех ПРОЕКТОВ одного художника (вывод архива) http://shcherbenko.odev.io/project/artists_1/
     case 'post_project_archive_by_term':
-        echo "<h1>Шаблон всех ПРОЕКТОВ одного художника (вывод архива)</h1>";
-        $post_year = get_query_var('post_year');
-        global $query_string;
-        if( $post_year ){
-            $query_string .= '&meta_key=year&meta_value=' . intval($post_year);
-        }
-        query_posts($query_string);
-        while (have_posts()): the_post();
-
-            ?>
-            [<?= get_the_ID() ?>]<?php the_title() ?><br>
-            year: <?= get_post_meta(get_the_ID(), 'year', true) ?><br>
-            artists: <?= get_the_term_list( get_the_ID(), 'artists' ) ?>
-            <hr>
-            <?php
-            
-        endwhile;
+        include_once('template-parts/template-artist-all-project.php');
         break;
-
 
     // Шаблон одной ПУБЛИКАЦИИ одного художника http://shcherbenko.odev.io/publications/artists_1/publications-2/
     case 'single_publications_post_by_term':
@@ -74,8 +57,6 @@ switch ($page_type) {
     case 'post_publications_archive_by_term':
         include_once('template-parts/template-artist-all-publications.php');
         break;
-
-
 
 }
 

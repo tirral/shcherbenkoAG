@@ -8,6 +8,8 @@
  */
 
 
+
+
 /*
  * Redux support
 */
@@ -273,6 +275,10 @@ function social_share_gorizontal(){ ?>
 
 
 
+
+
+
+
 add_action('init', 'artists_rewrites');
 
 function artists_rewrites()
@@ -281,7 +287,7 @@ function artists_rewrites()
     // Страница со списком постов терма определенного типа поста и значением meta "year" с номером страницы для пагинации
     add_rewrite_rule(
         '^(project)/([^/]*)/([0-9]{4})/page/([0-9]+)/?',
-        'index.php?page_type=post_project_archive_by_term&post_type=$matches[1]&artists=$matches[2]&meta_key=year&meta_value=$matches[3]&paged=$matches[4]',
+        'index.php?page_type=post_project_archive_by_term&term_post_type=$matches[1]&artists=$matches[2]&meta_key=year&meta_value=$matches[3]&paged=$matches[4]',
         'top'
     );
 
