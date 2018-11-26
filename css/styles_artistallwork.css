@@ -248,3 +248,8 @@
   width: 100%;
     margin: 0 auto;
 }
+
+.social-icons {
+    text-align: left;
+    left: 30px;
+}

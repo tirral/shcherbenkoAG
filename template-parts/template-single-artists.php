@@ -37,8 +37,8 @@ echo 'template-parts/template-single-artists.php';
                 <div class="artist-first-block">
                     <nav>
                         <ul class="artist-nav-list">
-                            <li class="artist-nav-item"><a href="#">Проекты</a></li>
-                            <li class="artist-nav-item"><a href="<?php echo  home_url( '/works/'. $artistsSlug ); ?>" class="linkOK">Публикации</a></li>
+                            <li class="artist-nav-item"><a href="<?php echo  home_url( '/project/'. $artistsSlug ); ?>" class="linkOK">Проекты</a></li>
+                            <li class="artist-nav-item"><a href="<?php echo  home_url( '/publications/'. $artistsSlug ); ?>" class="linkOK">Публикации</a></li>
                             <li class="artist-nav-item"><a href="#">Каталоги</a></li>
                             <li class="artist-nav-item"><a href="<?php echo  home_url( '/works/'. $artistsSlug ); ?>" class="linkOK">Работы</a></li>
 

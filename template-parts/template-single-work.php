@@ -13,6 +13,8 @@
  */
 function shcherbenko_scripts_artistonewokr() {
    wp_enqueue_style( 'shcherbenko-artistonework', get_template_directory_uri() . '/css/styles_onework.css', false, NULL, 'all');
+   wp_enqueue_style( 'shcherbenko-animate', get_template_directory_uri() . '/lib/animate.css/animate.min.css', false, NULL, 'all');
+   wp_enqueue_script('shcherbenko-wow', get_template_directory_uri() . '/lib/wow/wow.js');
  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
   wp_enqueue_script( 'comment-reply' );
  }
@@ -40,13 +42,13 @@ while ( $query->have_posts() ) {
           <div class="main-nav">
               <h1 class="title-h1"><?php echo $artistsName; ?></h1>
               <div class="flx">
-                  <a href="<?php echo  home_url( '/artists/'. $artistsSlug ); ?>" class="h4-title">Биография художника</a>
+                  <a href="<?php echo  home_url( '/artists/'. $artistsSlug ); ?>" class="h4-title linkOK">Биография художника</a>
                   <nav>
                       <ul>
-                          <li class="nav_item"><a href="#">проекты</a></li>
-                          <li class="nav_item"><a href="#">публикации</a></li>
+                          <li class="nav_item"><a href="<?php echo  home_url( '/project/'. $artistsSlug ); ?>" class="linkOK">проекты</a></li>
+                          <li class="nav_item"><a href="<?php echo  home_url( '/publications/'. $artistsSlug ); ?>" class="linkOK">публикации</a></li>
                           <li class="nav_item"><a href="#">каталоги</a></li>
-                          <li class="nav_item"><a href="#">работы</a></li>
+                          <li class="nav_item"><a href="<?php echo  home_url( '/works/'. $artistsSlug ); ?>" class="linkOK">работы</a></li>
                       </ul>
                   </nav>
               </div>
@@ -72,14 +74,14 @@ while ( $query->have_posts() ) {
 
                       <button class="btn form-btn">Отправить сообщение</button>
 
-                      <div class="hint">
+                          <div data-wow-delay="0.5s" data-wow-duration="1s" class="hint wow fadeInUp animated">
                           <p><strong>Заинтересовала работа?</strong></p>
                           <p>Свяжитесь с нашим менеджером.</p>
-
                           <div class="hint-close">
-                              <img src="<?php echo get_template_directory_uri();?>/img/i-close.png" alt="close">
+                          <img src="<?php echo get_template_directory_uri();?>/img/i-close.png" alt="close">
                           </div>
-                      </div> <!-- end hint -->
+                        </div> <!-- end hint -->
+
                   </form>
               </div>
 
@@ -105,10 +107,7 @@ while ( $query->have_posts() ) {
               <div class="sidebar">
                   <div class="sidebar-bottom">
                       <div class="social-icons">
-                          <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
-                          <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-insta.png" alt="instagram"></a>
-                          <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
-                          <a href="#"><img src="<?php echo get_template_directory_uri();?>/img/i-youtube.png" alt="youtube"></a>
+                          <a href="https://www.facebook.com/sharer.php?u=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
                       </div>
                       <img class="share" src="<?php echo get_template_directory_uri();?>/img/icon-share.png" alt="share">
                   </div>

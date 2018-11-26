@@ -44,18 +44,24 @@ echo 'template-parts/template-artist-all-project.php';
                  global $query_string;
 
                  if( $post_year ){
-                     $query_string .= '&meta_key=year&meta_value=' . intval($post_year);
+                     $query_string .= '&meta_key=year&meta_value=' . intval($post_year).'&posts_per_page=2';
                  }
 
-                 $query_string .= '&post_type=' . get_query_var('term_post_type');
+                 $query_string .= '&post_type=' . get_query_var('term_post_type').'&posts_per_page=2';
 
                  query_posts($query_string);
 
                  while (have_posts()): the_post();
+
                    get_template_part('template-parts/content', 'artistallproject');
 
                  endwhile;
              ?>
+
+             <div class="pagination">
+                 <?php
+                 wp_pagenavi(); ?>
+             </div>
 
 
 

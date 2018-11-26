@@ -44,7 +44,7 @@ while ( $query->have_posts() ) {
                 <nav>
                     <ul>
                         <li class="nav_item"><a href="<?php echo  home_url( '/artists/'. $artistsSlug ); ?>" class="linkOK">биография художника</a></li>
-                        <li class="nav_item"><a href="#">проекты</a></li>
+                        <li class="nav_item"><a href="<?php echo  home_url( '/project/'. $artistsSlug ); ?>" class="linkOK">проекты</a></li>
                         <li class="nav_item"><a href="<?php echo  home_url( '/publications/'. $artistsSlug ); ?>" class="linkOK">публикации</a></li>
                         <li class="nav_item"><a href="#">каталоги</a></li>
                         <li class="nav_item"><a href="<?php echo  home_url( '/works/'. $artistsSlug ); ?>" class="linkOK">работы</a></li>

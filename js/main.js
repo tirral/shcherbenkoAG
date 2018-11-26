@@ -109,10 +109,15 @@ var onePageWorkShow = function () {
       if(img === undefined) return;
       img.style.transform = `scale(${size})`;
   }
-
-
-
 };
+
+var wowInit = function () {
+new WOW().init();
+};
+
+
+
+
 
 
   $(function () {
@@ -122,6 +127,7 @@ var onePageWorkShow = function () {
     //aboutUsSlider();
     //homepageslider();
     //homepagesliderPub();
-    //onePageWorkShow();
+    onePageWorkShow();
+    wowInit();
   	});
   })(jQuery);

@@ -24,9 +24,18 @@ Template Name: Home page
                 }?>
 
             <div class="swiper-slide" data-name="<?php echo the_title(); ?>" data-calendar="<?php echo  get_post_meta(get_the_ID(), 'project_time', true); ?>">
+
                 <a href="<?php echo get_permalink(); ?>"><?php echo get_the_post_thumbnail(); ?></a>
-                <a href="https://www.facebook.com/sharer.php?u=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
-                <a href="https://plus.google.com/share?url=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-gp"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
+
+                <div class="social-icons__wrapper_top" style="position: absolute;  bottom: 0; right: -0px;">
+                <img class="social-icons__wrapper_share" src="<?php echo get_template_directory_uri();?>/img/icon-share.png" alt="share">
+                <div class="social-icons__container">
+                  <a href="#"class="social-icons__container-link-hide"></a>
+                  <a href="https://plus.google.com/share?url=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-gp"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
+                  <a href="https://www.facebook.com/sharer.php?u=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
+                </div>
+                </div>
+
             </div>
 
             <?php
@@ -47,8 +56,8 @@ Template Name: Home page
             <p class="project-title"> <?php echo $first_project_title; ?></p>
             <p class="pub-data"><?php echo $first_project_time; ?></p>
         </div>
-            <?php social_share_gorizontal(); ?>
-            <?php echo 'не работает' ?>
+          <div class="sidebar-bottom">
+          </div>
     </div>
 </div>
 
@@ -101,8 +110,17 @@ Template Name: Home page
                                                       <h3><?php echo the_title(); ?></h3>
                                                       <?php echo  get_post_meta(get_the_ID(), 'publications_description', true); ?>
                                                       <a href="<?php echo get_permalink(); ?>" class="btn pub-btn">Читать больше</a>
-                                                      <a href="https://www.facebook.com/sharer.php?u=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
-                                                      <a href="https://plus.google.com/share?url=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-gp"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
+
+                                                      <div class="social-icons__wrapper_top" style="margin-left: -36px;">
+                                                      <img class="social-icons__wrapper_share" src="<?php echo get_template_directory_uri();?>/img/icon-share.png" alt="share">
+                                                      <div class="social-icons__container">
+                                                        <a href="#"class="social-icons__container-link-hide"></a>
+                                                        <a href="https://plus.google.com/share?url=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-gp"><img src="<?php echo get_template_directory_uri();?>/img/i-google.png" alt="google"></a>
+                                                        <a href="https://www.facebook.com/sharer.php?u=<?php echo  esc_url( home_url( '/' ) );?><?php the_permalink(); ?>&amp;text=<?php the_title(); ?>" class="social-fb" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/i-fb.png" alt="facebook"></a>
+                                                      </div>
+                                                      </div>
+
+
                                                   </div>
                                               </div>
                                           </div>
@@ -119,12 +137,11 @@ Template Name: Home page
                       </div>
                       <div class="sidebar">
                           <p class="pub-data vertical-text"><?php echo $first_publications_time; ?></p>
-                            <?php social_share_gorizontal(); ?>
+                            <div class="sidebar-bottom">
+                            </div>
                       </div>
                   </div> <!-- end publications-wrapper -->
               </div>
-
-
 
   </main>
     <?php get_footer(); ?>

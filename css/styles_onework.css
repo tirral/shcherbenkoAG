@@ -480,3 +480,16 @@ input[type=range]:focus::-ms-fill-upper {
 .artists-pics-item  .social-icons img {
     margin-right: 13px;
 }
+
+
+
+/* ============================ TIRRAL ============================ */
+
+.share-wrapper .social-icons{
+    text-align: left;
+      left: 30px;
+}
+
+.sidebar-bottom .social-icons {
+    top: 44px;
+}

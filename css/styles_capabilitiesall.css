@@ -152,3 +152,9 @@
 .c-block img {
   margin-right: 50px;
 }
+
+.social-icons {
+    bottom: 20px;
+    height: 50px;
+    background-color: transparent;
+}

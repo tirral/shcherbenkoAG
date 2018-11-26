@@ -39,11 +39,11 @@ while ( $query->have_posts() ) {
         <div class="wrapper">
             <div class="main-nav">
                 <h1 class="title-h1"><?php echo $artistsName; ?></h1>
-                <a href="<?php echo  home_url( '/project/' . $artistsSlug ); ?>" class="nk_to-all-projects">Все проекты</a>
+                <a href="<?php echo  home_url( '/project/' . $artistsSlug ); ?>" class="nk_to-all-projects linkOK">Все проекты</a>
                 <nav>
                         <ul>
                             <li class="nav_item"><a href="<?php echo  home_url( '/artists/'. $artistsSlug ); ?>" class="linkOK">биография художника</a></li>
-                            <li class="nav_item"><a href="#">проекты</a></li>
+                            <li class="nav_item"><a href="<?php echo  home_url( '/project/'. $artistsSlug ); ?>" class="linkOK">проекты</a></li>
                             <li class="nav_item"><a href="<?php echo  home_url( '/publications/'. $artistsSlug ); ?>" class="linkOK">публикации</a></li>
                             <li class="nav_item"><a href="#">каталоги</a></li>
                             <li class="nav_item"><a href="<?php echo  home_url( '/works/'. $artistsSlug ); ?>" class="linkOK">работы</a></li>

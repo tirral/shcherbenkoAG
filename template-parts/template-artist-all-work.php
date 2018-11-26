@@ -30,13 +30,13 @@ echo 'template-parts/template-artist-all-work.php';
     <div class="wrapper">
         <div class="main-nav">
             <h1 class="title-h1">Работы: <?php echo $artistsName ?></h1>
-            <a href="<?php echo home_url('/artists/' . $artistsSlug); ?>" class="nk_to-prev-page">Биография
+            <a href="<?php echo home_url('/artists/' . $artistsSlug); ?>" class="nk_to-prev-page linkOK">Биография
                 художника</a>
             <nav>
                 <ul>
-                    <li class="nav_item"><a href="#">проекты</a></li>
-                    <li class="nav_item"><a href="#">публикации</a></li>
-                    <li class="nav_item"><a href="#">каталоги</a></li>
+                    <li class="nav_item"><a href="<?php echo  home_url( '/project/'. $artistsSlug ); ?>" class="linkOK">проекты</a></li>
+                    <li class="nav_item"><a href="<?php echo  home_url( '/publications/'. $artistsSlug ); ?>" class="linkOK">публикации</a></li>
+                    <li class="nav_item"><a href="<?php echo  home_url( '/artists/'. $artistsSlug ); ?>">каталоги</a></li>
                 </ul>
             </nav>
         </div>

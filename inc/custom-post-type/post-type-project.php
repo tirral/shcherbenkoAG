@@ -74,19 +74,6 @@ add_action( 'init', 'shcherbenko_toolbox_register_project', 0 );
 
 
 // Register the Project taxonomy
-	add_action( 'init', 'create_project_tupes' );
-
-	function create_project_tupes() {
-		register_taxonomy(
-			'project_tupes',
-			'project',
-			array(
-				'label' => __( 'Project_tupes' ),
-				'rewrite' => array( 'slug' => 'project_tupes' ),
-				'hierarchical' => true,
-			)
-		);
-	}
 
 add_action('add_meta_boxes', 'add_project_post_type_meta');
 

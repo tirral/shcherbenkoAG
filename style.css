@@ -59,6 +59,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 
+
 .footer-search-wrapper {
    position: relative;
 }
@@ -77,6 +78,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   background-repeat: no-repeat;
   outline: none;
 }
+
+
+.m-search{
+  position: relative;
+}
+
+
+.m-search   input[type=submit]{
+  cursor: pointer;
+  position: absolute;
+  top: -6px;
+  right: -45px;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  background-image: url(./img/search.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  outline: none;
+}
+
 
 
 
@@ -202,4 +225,11 @@ padding: 40px 20px;
 
 a.btn.m-btn{
   display: block;
+}
+
+
+.some{
+  background-color: red;
+  width: 300px;
+height: 100px;
 }

@@ -40,10 +40,14 @@ while ( $query->have_posts() ) {
                   <a href="#" class="title-h3"><?php echo  get_post_meta(get_the_ID(), 'myxi_year', true); ?></a>
               </div>
 
-                <div class="m-search">
-                    <input type="text" placeholder="Введите текст, что вы хотите найти...">
-                    <img src="<?php echo get_template_directory_uri();?>/img/search.png" alt="search">
-                </div>
+
+                  <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ) ?>" >
+                    <div class="m-search">
+                    <input type="text" value="<?php echo get_search_query() ?>" name="s" id="s" placeholder="Введите текст, что вы хотите найти...">
+                    <input type="submit" id="searchsubmit" value=""  />
+                    </div>
+                  </form>
+
             </div>
             <div class="sidebar"></div>
         </div>

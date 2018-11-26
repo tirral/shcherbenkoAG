@@ -459,3 +459,53 @@ footer .vertical-text > div {
         width: 100%;
     }
 }
+
+
+/* ============================ TIRRAL ============================ */
+
+
+.social-icons__wrapper_top{
+  position: relative;
+  /* background-color: #eee; */
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.social-icons__wrapper_top img{
+  display: block;
+  margin: 6px;
+}
+.social-icons__wrapper_top .social-icons__wrapper_share{
+
+}
+
+.social-icons__wrapper_top .social-icons__container{
+ /* border: 1px solid red; */
+  height: 164px;
+  position: absolute;
+  top: -120px;
+   display: none;
+}
+
+
+.social-icons__wrapper_top .social-icons__container a{
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 6px 0;
+   /* background-color: #eee; */
+
+}
+
+
+
+.social-icons__wrapper_top .social-icons__container a img{
+  display: block;
+  margin: 9px;
+}
+
+
+
+.social-icons__wrapper_top:hover .social-icons__container{
+  display: block;
+}

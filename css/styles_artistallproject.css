@@ -163,3 +163,24 @@
     position: absolute;
     top: -2px;
 }
+
+
+
+/*  ====================== TIRRAL ======================*/
+
+.pagination {
+  width: 100%;
+    margin: 0 auto;
+}
+
+
+
+
+
+.projects-item .social-icons {
+    right: 30px;
+}
+
+.social-icons {
+    text-align: right;
+}
